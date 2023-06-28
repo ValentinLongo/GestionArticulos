@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NuevaAppCoronel.View.ReposicionMercaderia.DetalleRegistrado"
+             Title="Lista de Artículos">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White" RowDefinitions="auto, *">
+            <StackLayout Grid.Row="0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                </Grid>
+                <ScrollView>
+                    <ListView x:Name="listaDetFalt" ItemsSource="{Binding Detfaltantes}" HasUnevenRows="True"
+                                  SeparatorVisibility="Default" Grid.Row="0" ItemTapped="listaDetFalt_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <SwipeView>
+                                        <SwipeView.RightItems>
+                                            <SwipeItems>
+                                                <SwipeItem Text="Eliminar" x:Name="btnImgEliminarFaltante" BackgroundColor="Red"/>
+                                            </SwipeItems>
+                                        </SwipeView.RightItems>
+                                        <Frame Padding="0">
+                                            <Grid Padding="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="100"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0">
+                                                    <Label Grid.Column="0" Text="{Binding aux_descri}" TextColor="Black" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Código: " FontSize="15" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding codigo}" VerticalOptions="Start" HorizontalOptions="Start" Grid.Column="0" FontSize="14" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Adicional: " FontSize="15" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding descriAdi}" VerticalOptions="Start" HorizontalOptions="Start" Grid.Column="0" FontSize="14" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Cantidad: " FontSize="15" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding aux_cantidad}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="14" TextColor="Black"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Deposito: " FontSize="15" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding Deposito}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="14"/>
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Estado: " FontSize="15" FontAttributes="Bold"/>
+                                                        <Label Text="{Binding estado}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="14" TextColor="{Binding color}"/>
+                                                    </StackLayout>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Grid.Column="1" VerticalOptions="Center">
+                                                    <CheckBox x:Name="chkDetFaltante" Color="#2196F3" Scale="1.5"
+                                                           IsChecked="{Binding det_check}"/>
+                                                    <Label Text="  "/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </Frame>
+                                    </SwipeView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

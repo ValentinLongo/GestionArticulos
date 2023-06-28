@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NuevaAppCoronel.View.PaginaInicioDetail">
+
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Image Source="logomaser.png" x:Name="logomaser" HeightRequest="100" VerticalOptions="Center" Aspect="AspectFit" Opacity="0.4"/>
+    </StackLayout>
+</ContentPage>

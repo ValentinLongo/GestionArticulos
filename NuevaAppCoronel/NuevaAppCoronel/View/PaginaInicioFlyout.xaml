@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NuevaAppCoronel.View.PaginaInicioFlyout"
+             Title="Flyout">
+
+    <Grid RowDefinitions="60,60,60,60,60" BackgroundColor="White">
+        <Button Text="Ubicación Stock" TextColor="Black" x:Name="btnUbicacionArticulos" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="0" Clicked="btnUbicacionArticulos_Clicked"/>
+        <Button Text="Etiquetas" TextColor="Black" x:Name="btnDevoluciones" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="1" Clicked="btnDevoluciones_Clicked"/>
+        <Button Text="Reposición de Mercaderia" TextColor="Black" x:Name="btnFalntates" 
+                    BackgroundColor="White" Image="mas.png"
+                    HorizontalOptions="FillAndExpand" Grid.Row="2" Clicked="btnFalntates_Clicked"/>
+        <Button Text="Preparación de pedidos" TextColor="Black" x:Name="btnPreparación" BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand" Grid.Row="3" Image="mas.png" Clicked="btnPreparación_Clicked"/>
+        <Button Text="Configurar Conexion" TextColor="Black" x:Name="btnConfigConexion" BackgroundColor="White"
+                    HorizontalOptions="FillAndExpand" Grid.Row="4" Image="Config.png"/>
+    </Grid>
+</ContentPage>

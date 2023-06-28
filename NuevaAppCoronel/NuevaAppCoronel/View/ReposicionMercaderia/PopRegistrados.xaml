@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage  xmlns:popup="http://rotorgames.com" 
+                  xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="NuevaAppCoronel.View.ReposicionMercaderia.PopRegistrados"
+                  Title="Artículo">
+    
+    <ContentPage.Content>
+        <Grid Margin="30,100,30,100" BackgroundColor="White">
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Frame BorderColor="Black" Padding="50">
+                    <Image x:Name="imgArtFaltante" WidthRequest="300" HeightRequest="250"/>
+                </Frame>
+                <Label x:Name="txtCodTex" IsVisible="false"/>
+                <Label x:Name="txtCodNum" IsVisible="false"/>
+                <Label x:Name="txtAdicional" IsVisible="false"/>
+                <Label x:Name="txtAdiCodigo" IsVisible="false"/>
+                <Label x:Name="txtCodigo" IsVisible="false"/>
+                <ListView x:Name="listaUbicaciones" ItemsSource="{Binding ubi}" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="0">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding ubicacion}"/>
+                                        <Label Text="      "/>
+                                        <Label Text="{Binding deposito}"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Text="Articulo Preparado" x:Name="btnPreparado" Clicked="btnPreparado_Clicked"/>
+                <Button Text="Articulo Sin Stock" x:Name="btnSinStock" Clicked="btnSinStock_Clicked"/>
+                <Button Text="Articulo No Preparado" x:Name="btnNoPreparado" Clicked="btnNoPreparado_Clicked"/>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

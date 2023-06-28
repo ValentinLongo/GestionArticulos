@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NuevaAppCoronel.View.ReposicionMercaderia.Finalizados"
+             Title="Finalizados">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ListaFinalizados" Grid.Row="2" Grid.ColumnSpan="2" HasUnevenRows="True" 
+                          ItemsSource="{Binding lista}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="0" x:Name="frameLista">
+                                <Grid Padding="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="90"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Row="0" Grid.Column="0">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Comentario: " FontSize="18" FontAttributes="Bold"/>
+                                            <Label Text="{Binding comentario}" VerticalOptions="Start" HorizontalOptions="Start" FontSize="18"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Usuario: " FontSize="16" FontAttributes="Bold"/>
+                                            <Label Text="{Binding nomUser}" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Fecha/Hora Inicio: " FontSize="16" FontAttributes="Bold"/>
+                                            <Label Text="{Binding DateTime}" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Fecha/Hora Fin: " FontSize="16" FontAttributes="Bold"/>
+                                            <Label Text="{Binding fechaFin}" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                            <Label Text="{Binding horaFin}" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NuevaAppCoronel.View.PreparacionPedidos.DetallePedido"
+             Title="Detalle del Pedido">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" x:Name="lbCarro"/>
+        <ToolbarItem Order="Primary" Text="+" x:Name="agregarCarro" Clicked="agregarCarro_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#e8fffe">
+            <ListView x:Name="ListaProducto" ItemsSource="{Binding lista}" HasUnevenRows="True" ItemTapped="ListaProducto_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="0">
+                                <Grid Padding="0">
+                                    <Grid Padding="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Row="0" Grid.Column="0">
+                                            <Grid BackgroundColor="{Binding color}">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <!--<ColumnDefinition Width="330"/>
+                                                    <ColumnDefinition Width="auto"/>-->
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="70"/>
+                                                </Grid.ColumnDefinitions>
+                                                <StackLayout Grid.Column="0">
+                                                    <Label Text="Articulo: " FontSize="16" Grid.Row="0" VerticalOptions="StartAndExpand"/>
+                                                    <Label Text="Codigo:" FontSize="16" Grid.Row="1" VerticalOptions="End"/>
+                                                    <Label Text="Adicional: " FontSize="16" Grid.Row="2" VerticalOptions="End"/>
+                                                    <Label Text="Ubicación: " FontSize="16" Grid.Row="3" VerticalOptions="End"/>
+                                                    <Label Text="Cantidad: " FontSize="16" Grid.Row="4" VerticalOptions="End"/>
+                                                    <Label Text="Etiqueta: " FontSize="16" Grid.Row="5" VerticalOptions="End"/>
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand" Margin="0">
+                                                    <Label Text="{Binding Articulo}" Grid.Row="0" VerticalOptions="StartAndExpand" HorizontalOptions="Start" FontSize="15" TextColor="Black"/>
+                                                    <Label Text="{Binding codTexYCodNum}" Grid.Row="1" TextColor="Black" />
+                                                    <Label Text="{Binding DescAdicional}" Grid.Row="2" TextColor="Black"/>
+                                                    <Label Text="{Binding Ubicacion}" Grid.Row="3" TextColor="Black"/>
+                                                    <Label Text="{Binding Cantidad}" Grid.Row="4" VerticalOptions="End" HorizontalOptions="Start" FontSize="15" TextColor="Black"/>
+                                                    <Label Text="{Binding numeroCarro}" Grid.Row="5" VerticalOptions="End" HorizontalOptions="Start" FontSize="15" TextColor="Black"/>
+                                                    <Label Text="{Binding IdPedido}" IsVisible="false"/>
+                                                    <Label Text="{Binding IdArticulos}" IsVisible="false"/>
+                                                    <Label Text="{Binding Adicional}" IsVisible="false"/>
+                                                    <!--<Label Text="{Binding DescAdicional}" IsVisible="false"/>-->
+                                                    <Label Text="{Binding Imagen}" IsVisible="false"/>
+                                                    <Label Text="{Binding Ubicacion}" IsVisible="false"/>
+                                                </StackLayout>
+                                                <StackLayout Grid.Column="2">
+                                                    <CheckBox HorizontalOptions="CenterAndExpand" IsEnabled="False" VerticalOptions="CenterAndExpand" Color="Black" IsChecked="{Binding CantidadPrep}"/>
+                                                </StackLayout>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout>
+                <Label x:Name="Codigo" IsVisible="false"/>
+                <Label x:Name="numUsu" IsVisible="false"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="End" Orientation="Horizontal" BackgroundColor="#d6fffe">
+                <Grid WidthRequest="500" BackgroundColor="#e8fffe">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="lbModificaciones" FontSize="20" Grid.Row="0" Grid.Column="0"></Label>
+                    <Label x:Name="lbVendedor" FontSize="20" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label x:Name="lbCliente" FontSize="20" Grid.Row="2" Grid.Column="0"></Label>
+                    <Label FontSize="20" Grid.Row="3" Text="Observaciones:" Grid.Column="0"></Label>
+                    <Entry x:Name="enObservacion" Grid.Row="4" TextTransform="Uppercase" Grid.Column="0"></Entry>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="End"  Orientation="Horizontal" BackgroundColor="#e8fffe">
+                <Button x:Name="btnFinalizar" HorizontalOptions="StartAndExpand" Grid.Column="0" Grid.Row="0" WidthRequest="210" BackgroundColor="#2196F3" TextColor="White" Text="Finalizar Completo" CornerRadius="20" Clicked="btnFinalizar_Clicked"></Button>
+                <Button x:Name="btnFinalizarParcial" HorizontalOptions="EndAndExpand" Grid.Column="1" Grid.Row="0" WidthRequest="210" BackgroundColor="#2196F3" TextColor="White" Text="Finalizar Parcial" CornerRadius="20" Clicked="btnFinalizarParcial_Clicked"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
